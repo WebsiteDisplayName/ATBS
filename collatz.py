@@ -9,10 +9,15 @@ def collatz(number):
         print(3*number+1)
         return 3*number+1
 
-print("Please enter a number: ", end='')
-response = int(input())
-
 while True:
-    response = collatz(response)
-    if response == 1:
-        sys.exit()
+    try:
+        print("Please enter a number: ", end='')
+        response = int(input())
+
+        while True:
+            response = collatz(response)
+            if response == 1:
+                sys.exit()
+
+    except ValueError:
+        print('Please enter an integer.\n')
